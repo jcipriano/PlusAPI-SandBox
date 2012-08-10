@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <%= stylesheet_link_tag "site.css" %>
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Droid+Sans:400,700" %>
+    
+    <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0rc1/zepto.min.js" %>
+    <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/ICanHaz.js/0.10/ICanHaz.min.js" %>
+    <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js" %>
+    <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js" %>
+    
+    <%= javascript_include_tag "Plus.js" %>
+    <%= javascript_include_tag "SandBox.js" %>
+    
+    <script>
+    
+      $(SandBox.init);
+    
+    </script>
+    
+    <%= yield_content :head %>
+  </head>
+  
+  <body class="<%= page_classes %>">
+
+    <div id="main" role="main">
+      <%= yield %>
+    </div>
+    
+    <%= partial "templates" %>
+  
+  </body>
+</html>
