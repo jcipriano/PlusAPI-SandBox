@@ -2,6 +2,8 @@
 *.rbc
 .bundle
 .config
+.sass-cache
+.DS_Store
 coverage
 InstalledFiles
 lib/bundler/man
