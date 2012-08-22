@@ -31,11 +31,28 @@
   };
   
   SandBox.searchClick = function() {
-    Plus.search('soccer', SandBox.searchComplete);
+    var options = {
+      query:'soccer',
+      maxResults: 20
+    };
+    
+    if(SandBox.pageToken) {
+      options.pageToken = SandBox.pageToken;
+    }
+    
+    Plus.search(options, SandBox.searchComplete);
   };
   
   SandBox.searchComplete = function(result) {
-    console.log('Search', result);
+    SandBox.pageToken = result.nextPageToken;
+    
+    var r = 0;
+    _.each(result.items, function(i){
+      r = r + 1;
+      console.log(i);
+      $('#col'+( r % 4 + 1 )).append(ich.plusItemTmp(i));
+    });
+    
   };
 
   SandBox.authComplete = function(authed) {

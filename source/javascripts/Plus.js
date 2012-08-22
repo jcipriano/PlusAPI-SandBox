@@ -87,17 +87,11 @@
     
   };
   
-  Plus.search = function(query, callback) {
+  Plus.search = function(options, callback) {
     
-    console.log('Plus.search', query);
+    console.log('Plus.search', options);
     
-    gapi.client.plus.activities.search({
-      'query': query,
-      'maxResults': 20
-    }).execute(function(response) {
-      callback(response);
-    });
-    
+    gapi.client.plus.activities.search(options).execute(function(response) { callback(response); });
   }
 
 }).call(this);

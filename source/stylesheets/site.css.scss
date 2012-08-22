@@ -1,32 +1,54 @@
 @import "compass";
 
-$link-color:         #0388a6;
-$link-hover-color:   #009ce0;
-$link-focus-color:   false;
-$link-active-color:  false;
-$link-visited-color: false;
-
-$font-color:  #2a2a2a;
-$font-family: sans-serif;
-$base-font-size:   12px;
-$base-line-height: 18px;
-
-$total-cols: 12;
-$col-width: 4em;
-$gutter-width: 1em;
-$side-gutter-width: $gutter-width;
-
 @include global-reset;
 
-body {
-  font-family: $font-family;
-  color: $font-color; 
-}
+$font-color: #666;
 
-a {
-  @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color);
+body {
+  font-family: helvetica, arial, verdana;
+  color: $font-color; 
+  background-color: #CCC;
+  font-size: 12px;
 }
 
 #main {
   padding: 50px;
+}
+
+.PlusItem {
+  
+  $plusItem-width: 300px;
+  
+  height: $plusItem-width;
+  width: 300px;
+  background-color: #FDFDFD;
+  overflow: hidden;
+  margin: 0 0 10px 0;
+  
+  .UserThumb {
+    height: 25px;
+    width: 25px;
+    border: 1px solid #666;
+  }
+  
+  .UserInfo {
+    height: 25px;
+    width: $plusItem-width;
+    background-color: #FFF;
+    
+    .UserName {
+      line-height: 25px;
+    }
+  }
+  
+  a {
+    text-decoration: none;
+    color: $font-color;
+  }
+  
+}
+
+.Column {
+  float: left;
+  margin: 0 10px 0 0;
 }
