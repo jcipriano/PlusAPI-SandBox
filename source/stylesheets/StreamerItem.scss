@@ -47,36 +47,53 @@
     bottom: 0px;
     z-index: 1;
     width: $plusItem-width;
+    background-color: #FFF;
+    padding: 1px 0 1px 0;
+    
+    .content {
+      margin: 5px 5px 5px 5px;
+    }
+    
+    img {
+      display: block;
+      width: 315px;
+      height: auto;
+      margin: 4px 5px 4px 5px;
+    }
     
     img.Photo {
-      width: 100%;
-      height: auto;
-      display: block;
+      
     }
     
     img.Thumb {
+      
+    }
+    
+    iframe {
       display: block;
-      margin: 15px;
-      border: $light-border;
     }
     
     .MainText {
-      color: #000;
-      margin: 0 15px 15px 15px;
-      font-size: 18px;
-      line-height: 24px;
+      color: #36C;
+      font-size: 12px;
+      line-height: 14px;
     }
+    
+    .SubText {
+      color: #666;
+      font-size: 12px;
+      line-height: 14px;
+    }
+    
   }
   
   .DetailsView {
-    position: absolute;
-    display:none;
-    left: 0px;
-    bottom: 0px;
     z-index: 0;
     padding-top: 1px;
-    height: 75px;
     width: $plusItem-width;
+    background-color: #FFF;
+    color: #666;
+    border-top: 1px solid #DDD;
     
     .content {
       margin: 4px 0 0 5px;

@@ -32,7 +32,7 @@
   
   Streamer.searchClick = function() {
     var options = {
-      query:'photography',
+      query:'soccer',
       maxResults: 20
     };
     
@@ -48,9 +48,18 @@
     
     var r = 0;
     _.each(result.items, function(item){
+      
+      if(item.source === 'Events') {
+        return;
+      }
+      
       r = r + 1;
       var data = DataNormailzer.process(item);
       $('#col'+( r % 3 + 1 )).append(ich.plusItemTmp(data));
+    });
+    
+    _.each(result.items, function(item){
+      gapi.plusone.render('plusone-' + item.id);
     });
     
   };

@@ -14,19 +14,27 @@
 		
 		{{#isArticle}}
     <img class="Thumb" src="{{image.url}}" width="image.width" height="image.height" alt="" />
-		<p class="MainText">{{mainText}}</p>
+		<div class="content">
+			<h4 class="MainText">{{mainText}}</h4>
+			<p class="SubText">{{subText}}</p>
+		</div>
 		{{/isArticle}}
 		
 		{{#isActivity}}
 		<p class="MainText">{{mainText}}</p>
 		{{/isActivity}}
 		
-		<p>{{type}}</p>
+		{{#isVideo}}
+		<img src="{{image.url}}" alt="" />
+		<!--<iframe src="{{video.embed}}" width="325" height="180"></iframe>-->
+		{{/isVideo}}
 	</div>
   
   <div class="DetailsView">
 		<div class="content">
-	  	<h3><a href="{{url}}" target="_blank">{{title}}</a></h3>
+	  	type: {{type}}<br />
+		  <a href="{{url}}" target="_blank" />open in plus</a><br />
+			<div id="plusone-{{id}}" data-href="{{url}}"></div>
 		</div>
 	</div>
   
