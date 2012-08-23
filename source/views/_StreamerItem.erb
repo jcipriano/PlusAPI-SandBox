@@ -1,4 +1,4 @@
-<div class="StreamerItem" style="background-color: {{color}}">
+<div class="StreamerItem" style="background-color: #D6D6D6">
   
   <div class="UserInfoView">
 		<div class="content">
@@ -8,12 +8,20 @@
 	</div>
   
 	<div class="MainView">
-		{{#hasImage}}
-    <img src="{{image.url}}" width="image.width" height="image.height" alt="" />
-		{{/hasImage}}
-		{{#noImage}}
+		{{#isPhoto}}
+    <img class="Photo" src="{{image.url}}" width="image.width" height="image.height" alt="" />
+		{{/isPhoto}}
+		
+		{{#isArticle}}
+    <img class="Thumb" src="{{image.url}}" width="image.width" height="image.height" alt="" />
 		<p class="MainText">{{mainText}}</p>
-		{{/noImage}}
+		{{/isArticle}}
+		
+		{{#isActivity}}
+		<p class="MainText">{{mainText}}</p>
+		{{/isActivity}}
+		
+		<p>{{type}}</p>
 	</div>
   
   <div class="DetailsView">

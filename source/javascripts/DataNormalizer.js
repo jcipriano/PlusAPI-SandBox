@@ -23,9 +23,9 @@
       data = _.extend(data, this.processActivity(item));
     }
     
-    data.hasImage = data.image;
-    data.noImage = !data.hasImage;
-    
+    data.isPhoto = data.type === 'photo';
+    data.isArticle = data.type === 'article';
+    data.isActivity = data.type === 'activity';
     data.raw = item;
     
     console.log(data.user.name, data.raw.object.objectType, data);
@@ -43,6 +43,10 @@
         
         data.image = { };
         
+        if(!data.type) {
+          data.type = 'photo';
+        }
+        
         if(atch.fullImage.width && atch.fullImage.height){
           data.image.url = atch.fullImage.url;
         } else {
@@ -50,17 +54,20 @@
         }
       }
       
-      else if(atch.objectType === 'video') {
-        //item.imageUrl = atch.fullImage.url;
-      }
-      
       else if(atch.objectType === 'article') {
+        
+        data.type = 'article';
         data.linkUrl = atch.url;
         
         if(item.title === '') {
           data.mainText = atch.displayName;
         }
       }
+      
+      else if(atch.objectType === 'video') {
+        //item.imageUrl = atch.fullImage.url;
+      }
+      
     });
     
     return data;
@@ -70,6 +77,9 @@
     
     var data = { };
     
+    data.type = 'activity';
+    data.mainText = item.title;
+      
     return data;
   };
   
