@@ -48,14 +48,13 @@
     
     var r = 0;
     _.each(result.items, function(item){
-      
-      if(item.source === 'Events') {
-        return;
-      }
-      
       r = r + 1;
       var data = DataNormailzer.process(item);
-      $('#col'+( r % 3 + 1 )).append(ich.plusItemTmp(data));
+      
+      if(data.source !== 'Events') {
+        $('#col'+( r % 3 + 1 )).append(ich.plusItemTmp(data));
+      }
+      
     });
     
     _.each(result.items, function(item){
